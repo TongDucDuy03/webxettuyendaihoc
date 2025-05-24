@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thống Kê Phương Thức Xét Tuyển Đại Học</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎓 Thống Kê Xét Tuyển Đại Học</h1>
+            <p>Hệ thống thống kê và tra cứu phương thức xét tuyển các trường đại học Việt Nam</p>
+        </div>
+
+        <div class="controls">
+            <div class="search-filter-container">
+                <input type="text" class="search-box" id="searchBox" placeholder="🔍 Tìm kiếm trường đại học...">
+                <select class="filter-select" id="regionFilter">
+                    <option value="">Tất cả khu vực</option>
+                    <option value="Hà Nội">Hà Nội</option>
+                    <option value="TP.HCM">TP.HCM</option>
+                    <option value="Đà Nẵng">Đà Nẵng</option>
+                    <option value="Hải Phòng">Hải Phòng</option>
+                    <option value="Cần Thơ">Cần Thơ</option>
+                </select>
+                <select class="filter-select" id="typeFilter">
+                    <option value="">Tất cả loại hình</option>
+                    <option value="Công lập">Công lập</option>
+                    <option value="Tư thục">Tư thục</option>
+                </select>
+            </div>
+
+            <div class="stats-overview">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalUniversities">0</div>
+                    <div class="stat-label">Tổng số trường</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="totalMethods">0</div>
+                    <div class="stat-label">Phương thức xét tuyển</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="publicUniversities">0</div>
+                    <div class="stat-label">Trường công lập</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="privateUniversities">0</div>
+                    <div class="stat-label">Trường tư thục</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="university-grid" id="universityGrid">
+                <!-- Universities will be populated here -->
+            </div>
+            <div class="no-results" id="noResults" style="display: none;">
+                <h3>🔍 Không tìm thấy kết quả</h3>
+                <p>Vui lòng thử lại với từ khóa khác hoặc thay đổi bộ lọc</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
