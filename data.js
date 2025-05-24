@@ -315,29 +315,30 @@ const universities = [
         type: "Công lập",
         established: 1959,
         website: "dav.edu.vn",
-        admissionMethods: ["Xét tuyển thẳng", "Xét tuyển sớm học bạ", "Xét tuyển sớm phỏng vấn", "Xét tuyển theo điểm thi THPT"],
+        admissionMethods: ["Xét tuyển thẳng", "Xét tuyển kết hợp học bạ", "Xét tuyển kết hợp điểm thi THPT", "Xét tuyển theo điểm thi THPT"],
         detailedInfo: {
             totalQuota: "Chỉ tiêu được phân bổ theo từng phương thức xét tuyển",
-            admissionPeriod: "15/5 - 25/5/2024 (xét tuyển thẳng), theo kế hoạch riêng (xét tuyển sớm), theo lịch Bộ GD&ĐT (xét tuyển theo điểm thi THPT)",
+            admissionPeriod: "Theo thông báo của Học viện (dav.edu.vn)",
             methods: {
                 "Xét tuyển thẳng": {
                     condition: "Theo quy định của Bộ Giáo dục và Đào tạo",
                     quota: "Theo quy định"
                 },
-                "Xét tuyển sớm học bạ": {
-                    condition: "Dựa trên kết quả học tập THPT",
-                    quota: "70% tổng chỉ tiêu mỗi ngành",
-                    scoring: "A + B + C",
-                    note: "A: Tổng điểm TB 3 môn (3 học kỳ bất kỳ trong 5 học kỳ) × 2/3\nB: Điểm khuyến khích (HSG, chứng chỉ quốc tế, học sinh trường chuyên)\nC: Điểm ưu tiên"
+                "Xét tuyển kết hợp học bạ": {
+                    condition: "Điểm TB 6 học kỳ ≥ 8.0 và có chứng chỉ quốc tế (IELTS, TOEFL iBT, SAT, ACT)",
+                    quota: "Theo kế hoạch",
+                    scoring: "A + B + C + D",
+                    note: "A: Điểm quy đổi chứng chỉ quốc tế\nB: Tổng điểm TB 2 môn (có Toán/Văn) trong 6 học kỳ\nC: Điểm khuyến khích HSG\nD: Điểm ưu tiên"
                 },
-                "Xét tuyển sớm phỏng vấn": {
-                    condition: "Tham gia phỏng vấn theo kế hoạch của Học viện",
-                    quota: "2% tổng chỉ tiêu mỗi ngành",
-                    scoring: "Dựa trên kết quả phỏng vấn và các tiêu chí khác"
+                "Xét tuyển kết hợp điểm thi THPT": {
+                    condition: "Tham dự kỳ thi THPT 2025 và có chứng chỉ quốc tế",
+                    quota: "Theo kế hoạch",
+                    scoring: "A + B + C + D",
+                    note: "A: Điểm quy đổi chứng chỉ quốc tế\nB: Tổng điểm 2 môn thi (có Toán/Văn)\nC: Điểm khuyến khích HSG\nD: Điểm ưu tiên"
                 },
                 "Xét tuyển theo điểm thi THPT": {
-                    condition: "Sử dụng kết quả thi tốt nghiệp THPT năm 2024",
-                    quota: "25% tổng chỉ tiêu mỗi ngành",
+                    condition: "Sử dụng kết quả thi tốt nghiệp THPT năm 2025",
+                    quota: "Phần còn lại",
                     scoring: "A + B + C",
                     note: "A: Tổng điểm 3 môn thi\nB: Điểm khuyến khích HSG\nC: Điểm ưu tiên"
                 }
@@ -350,33 +351,175 @@ const universities = [
         type: "Công lập",
         established: 1960,
         website: "utc.edu.vn",
-        admissionMethods: ["Xét tuyển theo điểm thi THPT", "Xét tuyển học bạ", "Xét tuyển kết hợp", "Xét tuyển theo ĐGNL"],
+        admissionMethods: ["Xét tuyển theo điểm thi THPT", "Xét tuyển học bạ", "Xét tuyển theo ĐGNL", "Xét tuyển theo ĐGTD"],
         detailedInfo: {
-            totalQuota: "Chỉ tiêu được phân bổ theo từng phương thức xét tuyển",
-            admissionPeriod: "28/5 - 16/6/2024 (xét học bạ và kết hợp), 18/7 - 30/7/2024 (xét theo điểm thi THPT), đến 23/8/2024 (xét tuyển bổ sung)",
+            totalQuota: "6.340 chỉ tiêu",
+            admissionPeriod: "1/7 - 20/7/2025 (đăng ký), 4/6/2025 (công bố kết quả xét tuyển), 20/6/2025 (công bố kết quả thi), 22/8 - 27/8/2025 (xác nhận nhập học), 6/9 - 8/9/2025 (nhập học), 9/9/2025 (khai giảng)",
             methods: {
                 "Xét tuyển theo điểm thi THPT": {
-                    condition: "Sử dụng kết quả thi tốt nghiệp THPT năm 2024",
+                    condition: "Sử dụng kết quả thi tốt nghiệp THPT năm 2025",
                     quota: "Phần lớn chỉ tiêu",
-                    scoring: "(Điểm Toán × 2) + Điểm môn 2 + Điểm môn 3 + Điểm ưu tiên"
+                    scoring: "(Điểm Toán × 2) + Điểm môn 2 + Điểm môn 3 + Điểm ưu tiên",
+                    note: "Điểm môn Toán được nhân hệ số 2 trong tất cả tổ hợp"
                 },
                 "Xét tuyển học bạ": {
-                    condition: "Dựa trên kết quả học tập 3 năm THPT",
+                    condition: "Sử dụng kết quả học tập 6 học kỳ THPT",
                     quota: "Theo kế hoạch",
-                    scoring: "(Điểm TB Toán 3 năm × 2) + Điểm TB môn 2 + Điểm TB môn 3 + Điểm ưu tiên",
+                    scoring: "(Điểm TB Toán × 2) + Điểm TB môn 2 + Điểm TB môn 3",
                     note: "Điểm TB từng môn mỗi năm ≥ 5.5"
                 },
-                "Xét tuyển kết hợp": {
-                    condition: "Kết hợp học bạ/điểm thi THPT với chứng chỉ ngoại ngữ quốc tế",
+                "Xét tuyển theo ĐGNL": {
+                    condition: "Kết quả ĐGNL 2025 của ĐHQGHN hoặc ĐHQG-HCM",
+                    quota: "Áp dụng cho các ngành tại Hà Nội và TP.HCM",
+                    scoring: "Theo quy định của từng trường",
+                    note: "Điểm từ 80% thang điểm trở lên"
+                },
+                "Xét tuyển theo ĐGTD": {
+                    condition: "Kết quả ĐGTD 2024-2025 của ĐH Bách khoa Hà Nội",
+                    quota: "Áp dụng cho một số ngành tại Hà Nội",
+                    scoring: "Theo quy định của ĐH Bách khoa",
+                    note: "Điểm từ 80% thang điểm trở lên"
+                }
+            }
+        }
+    },
+    {
+        name: "Học viện Công nghệ Bưu chính Viễn thông (PTIT)",
+        region: "Hà Nội",
+        type: "Công lập",
+        established: 1997,
+        website: "ptit.edu.vn",
+        admissionMethods: ["Xét tuyển tài năng", "Xét tuyển thẳng", "Xét hồ sơ năng lực", "Xét tuyển theo chứng chỉ quốc tế", "Xét tuyển theo ĐGNL/ĐGTD", "Xét tuyển kết hợp IELTS/TOEFL", "Xét tuyển theo điểm thi THPT"],
+        detailedInfo: {
+            totalQuota: "Chỉ tiêu được phân bổ theo từng phương thức xét tuyển",
+            admissionPeriod: "Tháng 3 - 7/2025 (xét tuyển sớm), tháng 7-8/2025 (xét theo điểm THPT)",
+            methods: {
+                "Xét tuyển tài năng": {
+                    condition: "Đoạt giải Nhất, Nhì, Ba HSG Quốc gia, Quốc tế (Toán, Lý, Hóa, Tin, Anh, Văn)",
+                    quota: "Theo quy định"
+                },
+                "Xét hồ sơ năng lực": {
+                    condition: "Một trong các điều kiện:\n- HSG cấp tỉnh (Nhất, Nhì, Ba, KK)\n- Học sinh trường chuyên (điểm TB lớp 10-12 ≥ 7.5, hạnh kiểm Khá trở lên)",
                     quota: "Theo kế hoạch",
-                    scoring: "[(Điểm môn 1 + Điểm môn 2 + Điểm tiếng Anh quy đổi × 2) × 30/40] + Điểm ưu tiên",
-                    note: "IELTS ≥ 5.0, còn hiệu lực đến 30/6/2025"
+                    scoring: "(Điểm học lực × 60%) + (Điểm thành tích × 40%) + Điểm ưu tiên"
+                },
+                "Xét tuyển theo chứng chỉ quốc tế": {
+                    condition: "SAT ≥ 1130/1600 hoặc ACT ≥ 25/36 (còn hạn 2 năm)",
+                    quota: "Theo kế hoạch",
+                    scoring: "Điểm SAT/ACT + Điểm cộng + Điểm ưu tiên"
+                },
+                "Xét tuyển theo ĐGNL/ĐGTD": {
+                    condition: "Một trong các điều kiện:\n- ĐGNL ĐHQG TP.HCM (APT) ≥ 600 điểm\n- ĐGNL ĐHQG Hà Nội (HSA) ≥ 75 điểm\n- ĐGTD Bách khoa Hà Nội (TSA) ≥ 50 điểm\n- ĐGNL Sư phạm Hà Nội (SPT) ≥ 15 điểm",
+                    quota: "Theo kế hoạch",
+                    scoring: "Điểm thi ĐGNL/ĐGTD + Điểm cộng + Điểm ưu tiên"
+                },
+                "Xét tuyển kết hợp IELTS/TOEFL": {
+                    condition: "IELTS ≥ 5.5 hoặc TOEFL iBT ≥ 65 và điểm TB lớp 10-12 ≥ 7.5 (3 môn tổ hợp)",
+                    quota: "Theo kế hoạch",
+                    scoring: "(ĐTB môn 1 + ĐTB môn 2 + ĐTB môn 3) + Điểm quy đổi IELTS + Điểm ưu tiên",
+                    note: "Điểm IELTS có thể thay thế điểm môn Tiếng Anh trong tổ hợp"
+                },
+                "Xét tuyển theo điểm thi THPT": {
+                    condition: "Sử dụng kết quả thi tốt nghiệp THPT năm 2025",
+                    quota: "Phần còn lại",
+                    scoring: "Điểm môn 1 + Điểm môn 2 + Điểm môn 3 + Điểm ưu tiên",
+                    note: "Điểm cộng: 1-3 điểm cho thí sinh có giải HSG"
+                }
+            }
+        }
+    },
+    {
+        name: "Đại học Sư phạm Hà Nội 2 (SP2)",
+        region: "Hà Nội",
+        type: "Công lập",
+        established: 1967,
+        website: "hpu2.edu.vn",
+        admissionMethods: ["Xét tuyển theo điểm thi THPT", "Xét tuyển kết hợp năng khiếu", "Xét tuyển theo kỳ thi độc lập", "Xét tuyển học bạ", "Xét tuyển theo ĐGNL", "Xét tuyển thẳng", "Xét tuyển dự bị đại học"],
+        detailedInfo: {
+            totalQuota: "Chỉ tiêu được phân bổ theo từng phương thức xét tuyển",
+            admissionPeriod: "01/4 - 04/5/2025 (đăng ký thi độc lập), 01/6/2025 (thi độc lập), trước 19/6/2025 (công bố kết quả)",
+            methods: {
+                "Xét tuyển theo điểm thi THPT": {
+                    condition: "Sử dụng kết quả thi tốt nghiệp THPT năm 2025",
+                    methodCode: "PT100",
+                    scoring: "Điểm Môn 1 + Điểm Môn 2 + Điểm Môn 3 + Điểm ưu tiên"
+                },
+                "Xét tuyển kết hợp năng khiếu": {
+                    condition: "Áp dụng cho ngành Giáo dục Mầm non, Giáo dục Thể chất, Quản lý TDTT",
+                    methodCode: "PT405",
+                    scoring: "Điểm bài thi đánh giá năng lực + Điểm thi năng khiếu + Điểm ưu tiên",
+                    note: "Điểm thi năng khiếu: thang điểm 20 (Mầm non) hoặc 30 (Thể chất, TDTT)"
+                },
+                "Xét tuyển theo kỳ thi độc lập": {
+                    condition: "Tham dự kỳ thi độc lập của trường",
+                    methodCode: "PT401",
+                    scoring: "Điểm Môn 1 + Điểm Môn 2 + Điểm Môn 3 + Điểm ưu tiên"
+                },
+                "Xét tuyển học bạ": {
+                    condition: "Sử dụng kết quả học tập THPT",
+                    methodCode: "PT200",
+                    scoring: "Trung bình cộng điểm học tập (Môn 1 + Môn 2 + Môn 3) + Điểm ưu tiên"
                 },
                 "Xét tuyển theo ĐGNL": {
-                    condition: "Kết quả thi ĐGNL của ĐHQG-HCM",
-                    quota: "Áp dụng cho Phân hiệu TP.HCM",
-                    scoring: "Theo quy định của ĐHQG-HCM"
+                    condition: "Sử dụng kết quả thi đánh giá năng lực",
+                    methodCode: "PT402",
+                    scoring: "Ngành Mầm non: Điểm ĐGNL + Điểm năng khiếu + Điểm ưu tiên\nCác ngành khác: Điểm ĐGNL + Điểm ưu tiên"
+                },
+                "Xét tuyển thẳng": {
+                    condition: "Theo quy định của Bộ Giáo dục và Đào tạo",
+                    methodCode: "PT301",
+                    quota: "Theo quy định"
+                },
+                "Xét tuyển dự bị đại học": {
+                    condition: "Học sinh hoàn thành chương trình dự bị đại học",
+                    methodCode: "PT301-DB",
+                    quota: "Theo quy định"
                 }
+            }
+        }
+    },
+    {
+        name: "Đại học Xây dựng Hà Nội (HUCE)",
+        region: "Hà Nội",
+        type: "Công lập",
+        established: 1966,
+        website: "huce.edu.vn",
+        admissionMethods: ["Xét tuyển theo điểm thi THPT", "Xét tuyển học bạ", "Xét tuyển theo ĐGTD/ĐGNL", "Xét tuyển theo chứng chỉ quốc tế", "Xét tuyển thẳng"],
+        detailedInfo: {
+            totalQuota: "Chỉ tiêu được phân bổ theo từng phương thức xét tuyển",
+            admissionPeriod: "15/5 - 10/6/2025 (đăng ký xét tuyển), 16/7 - 28/7/2025 (đăng ký nguyện vọng)",
+            methods: {
+                "Xét tuyển theo điểm thi THPT": {
+                    condition: "Sử dụng kết quả thi tốt nghiệp THPT năm 2025",
+                    quota: "Phần lớn chỉ tiêu",
+                    scoring: "Tổng điểm 3 môn thi/bài thi theo tổ hợp + Điểm ưu tiên",
+                    note: "Các ngành có môn Vẽ Mỹ thuật sử dụng kết quả thi môn Vẽ của Trường hoặc các trường khác (được quy đổi về thang điểm của Trường)"
+                },
+                "Xét tuyển học bạ": {
+                    condition: "Áp dụng cho các ngành không có môn Vẽ Mỹ thuật",
+                    quota: "Theo kế hoạch",
+                    scoring: "Tổng điểm 3 môn theo tổ hợp + Điểm ưu tiên",
+                    note: "Có thể sử dụng IELTS 5.5 trở lên thay thế môn Tiếng Anh"
+                },
+                "Xét tuyển theo ĐGTD/ĐGNL": {
+                    condition: "Áp dụng cho các ngành không có môn Vẽ Mỹ thuật, bao gồm:\n- ĐGTD (TSA) 2024-2025 của ĐH Bách khoa Hà Nội\n- ĐGNL 2025 của ĐH Sư phạm Hà Nội\n- V-SAT 2025",
+                    quota: "Theo kế hoạch",
+                    scoring: "Tổng điểm các môn thi/bài thi theo tổ hợp + Điểm ưu tiên"
+                },
+                "Xét tuyển theo chứng chỉ quốc tế": {
+                    condition: "Áp dụng cho các ngành không có môn Vẽ Mỹ thuật\nSAT ≥ 1200 hoặc ACT ≥ 26 (còn hiệu lực)",
+                    quota: "Theo kế hoạch",
+                    scoring: "Điểm quy đổi từ chứng chỉ + Điểm ưu tiên"
+                },
+                "Xét tuyển thẳng": {
+                    condition: "Theo quy định của Bộ GD&ĐT và đề án của Trường\nĐạt giải Nhất, Nhì, Ba HSG cấp tỉnh/thành phố",
+                    quota: "Theo quy định",
+                    note: "Xét tuyển theo ngành/chuyên ngành phù hợp với môn đoạt giải"
+                }
+            },
+            registrationLinks: {
+                online: "https://xthb.huce.edu.vn",
+                nguyenVong: "https://utxt.huce.edu.vn"
             }
         }
     }
