@@ -59,6 +59,9 @@ body {
     font-size: 16px;
     transition: all 0.3s ease;
     background: white;
+    width: 100%; /* Đặt chiều rộng bằng nhau */
+    max-width: 800px; /* Giới hạn chiều rộng tối đa nếu cần */
+    box-sizing: border-box; /* Đảm bảo padding không ảnh hưởng đến chiều rộng */
 }
 
 .search-box:focus, .filter-select:focus {
