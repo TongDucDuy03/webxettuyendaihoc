@@ -348,6 +348,43 @@ body {
     letter-spacing: 0.5px;
 }
 
+/* Bộ lọc chung */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    background: #f8f9fa;
+    padding: 18px 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.06);
+}
+
+.filter-bar label {
+    font-weight: 500;
+    margin-right: 8px;
+    color: #2c3e50;
+}
+
+.filter-bar select,
+.filter-bar input[type="text"] {
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1em;
+    background: #fff;
+    transition: border 0.2s;
+    min-width: 160px;
+}
+
+.filter-bar select:focus,
+.filter-bar input[type="text"]:focus {
+    border: 1.5px solid #3498db;
+    outline: none;
+    background: #f0f8ff;
+}
+
 @media (max-width: 768px) {
     .search-filter-container {
         grid-template-columns: 1fr;
@@ -369,5 +406,17 @@ body {
     .majors-list th, .majors-list td {
         font-size: 0.92em;
         padding: 7px 4px;
+    }
+}
+
+@media (max-width: 700px) {
+    .filter-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        padding: 12px;
+    }
+    .filter-bar label {
+        margin-bottom: 4px;
     }
 }

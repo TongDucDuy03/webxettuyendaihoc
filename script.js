@@ -130,6 +130,17 @@ function renderUniversities() {
     }, 0);
 }
 
+// Lấy danh sách ngành duy nhất
+function getAllMajors(universities) {
+    const majorSet = new Set();
+    universities.forEach(u => {
+        if (u.majors) {
+            u.majors.forEach(m => majorSet.add(m.name));
+        }
+    });
+    return Array.from(majorSet).sort();
+}
+
 function filterUniversities() {
     const searchTerm = document.getElementById('searchBox').value.toLowerCase();
     const regionFilter = document.getElementById('regionFilter').value;
@@ -157,3 +168,25 @@ document.getElementById('typeFilter').addEventListener('change', filterUniversit
 
 // Initial render
 filterUniversities();
+
+const majorFilter = document.getElementById('major-filter');
+const majors = getAllMajors(universities);
+majors.forEach(major => {
+    const option = document.createElement('option');
+    option.value = major;
+    option.textContent = major;
+    majorFilter.appendChild(option);
+});
+
+majorFilter.addEventListener('change', function() {
+    const selectedMajor = this.value;
+    let filtered = universities;
+    if (selectedMajor) {
+        filtered = universities.filter(u =>
+            u.majors && u.majors.some(m => m.name === selectedMajor)
+        );
+    }
+    // Gán filtered vào biến filteredUniversities rồi gọi lại renderUniversities()
+    filteredUniversities = filtered;
+    renderUniversities();
+});
