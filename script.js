@@ -29,7 +29,7 @@ function renderUniversities() {
     grid.style.display = 'grid';
     noResults.style.display = 'none';
 
-    grid.innerHTML = filteredUniversities.map(university => `
+    grid.innerHTML = filteredUniversities.map((university, idx) => `
         <div class="university-card">
             <div class="university-name">${university.name}</div>
             <div class="university-info">
@@ -89,8 +89,45 @@ function renderUniversities() {
                     `).join('')}
                 </div>
             ` : ''}
+            <button class="show-majors-btn" data-index="${idx}" style="margin-top:12px;">Xem các ngành</button>
+            <div class="majors-list" id="majors-list-${idx}" style="display:none; margin-top:10px;"></div>
         </div>
     `).join('');
+
+    // Gán sự kiện cho nút "Xem các ngành"
+    setTimeout(() => {
+        document.querySelectorAll('.show-majors-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const idx = this.getAttribute('data-index');
+                const majorsDiv = document.getElementById(`majors-list-${idx}`);
+                const university = filteredUniversities[idx];
+                if (majorsDiv.style.display === 'none') {
+                    majorsDiv.innerHTML = university.majors && university.majors.length
+                        ? `
+                            <div><strong>Ngành đào tạo:</strong></div>
+                            <ul>
+                                ${university.majors.map(m => `
+                                    <li>${m.name} <span style="color:#888;">(Tổ hợp: ${m.combinations.join(', ')})</span></li>
+                                `).join('')}
+                            </ul>
+                            ${university.trainingPrograms ? `
+                                <div><strong>Chương trình đào tạo:</strong> ${university.trainingPrograms.join(', ')}</div>
+                            ` : ''}
+                            <div style="margin-top:8px;"><strong>Các tổ hợp xét tuyển:</strong> 
+                                <span>A00, A01, D01, D07, D02, D03, D04, D06</span>
+                                ${university.otherCombinations ? `<br><span>${university.otherCombinations.join(', ')}</span>` : ''}
+                            </div>
+                        `
+                        : '<i>Chưa có dữ liệu ngành</i>';
+                    majorsDiv.style.display = 'block';
+                    this.textContent = 'Ẩn các ngành';
+                } else {
+                    majorsDiv.style.display = 'none';
+                    this.textContent = 'Xem các ngành';
+                }
+            });
+        });
+    }, 0);
 }
 
 function filterUniversities() {
@@ -119,4 +156,4 @@ document.getElementById('regionFilter').addEventListener('change', filterUnivers
 document.getElementById('typeFilter').addEventListener('change', filterUniversities);
 
 // Initial render
-filterUniversities(); 
+filterUniversities();
