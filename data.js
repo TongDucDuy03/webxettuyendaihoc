@@ -63,30 +63,6 @@ const universities = [
         note: "Các tổ hợp xét tuyển: A00 (Toán, Lý, Hóa), A01 (Toán, Lý, Anh), D01 (Toán, Văn, Anh), D07 (Toán, Hóa, Anh)."
     },
     {
-        name: "Đại học Hải Phong",
-        region: "Hải Phòng",
-        type: "Tư thục",
-        established: 1997,
-        website: "hpu.edu.vn",
-        admissionMethods: ["Xét tuyển học bạ", "Xét tuyển kết hợp", "Xét tuyển theo năng lực"]
-    },
-    {
-        name: "Đại học Cần Thơ",
-        region: "Cần Thơ",
-        type: "Công lập",
-        established: 1966,
-        website: "ctu.edu.vn",
-        admissionMethods: ["Xét tuyển theo điểm thi THPT", "Xét tuyển học bạ", "Xét tuyển kết hợp", "Xét tuyển thẳng"]
-    },
-    {
-        name: "Đại học Tôn Đức Thắng",
-        region: "TP.HCM",
-        type: "Công lập",
-        established: 1997,
-        website: "tdtu.edu.vn",
-        admissionMethods: ["Xét tuyển theo điểm thi THPT", "Xét tuyển học bạ", "Xét tuyển kết hợp", "Xét tuyển thẳng", "Xét tuyển tài năng"]
-    },
-    {
         name: "Học viện Ngân hàng",
         region: "Hà Nội",
         type: "Công lập",

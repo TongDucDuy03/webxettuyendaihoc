@@ -147,7 +147,8 @@ function filterUniversities() {
     const searchTerm = document.getElementById('searchBox').value.toLowerCase();
     const regionFilter = document.getElementById('regionFilter').value;
     const typeFilter = document.getElementById('typeFilter').value;
-    const majorTerm = majorInput.value.trim().toLowerCase();
+    const majorTerm = document.getElementById('major-filter').value.trim().toLowerCase();
+    const methodFilter = document.getElementById('methodFilter').value;
 
     let filtered = universities.filter(u => {
         let match = (!searchTerm || u.name.toLowerCase().includes(searchTerm));
@@ -155,6 +156,9 @@ function filterUniversities() {
         if (typeFilter) match = match && u.type === typeFilter;
         if (majorTerm) {
             match = match && u.majors && u.majors.some(m => m.name.toLowerCase().includes(majorTerm));
+        }
+        if (methodFilter) {
+            match = match && u.admissionMethods && u.admissionMethods.includes(methodFilter);
         }
         return match;
     });
@@ -168,6 +172,7 @@ function filterUniversities() {
 document.getElementById('searchBox').addEventListener('input', filterUniversities);
 document.getElementById('regionFilter').addEventListener('change', filterUniversities);
 document.getElementById('typeFilter').addEventListener('change', filterUniversities);
+document.getElementById('methodFilter').addEventListener('change', filterUniversities);
 
 // Initial render
 filterUniversities();
