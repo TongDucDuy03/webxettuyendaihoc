@@ -1,16 +1,20 @@
 // Sample data for Vietnamese universities
 const universities = [
     {
-        name: "Đại học Kinh tế Quốc dân",
+        name: "Đại học Kinh tế Quốc dân (NEU)",
         region: "Hà Nội",
         type: "Công lập",
         established: 1956,
         website: "neu.edu.vn",
-        admissionMethods: ["Xét tuyển thẳng", "Xét tuyển theo điểm thi THPT", "Xét tuyển kết hợp"],
+        admissionMethods: [
+            "Xét tuyển thẳng",
+            "Xét tuyển theo điểm thi THPT",
+            "Xét tuyển kết hợp"
+        ],
         detailedInfo: {
             totalQuota: "Chỉ tiêu được phân bổ theo từng phương thức xét tuyển",
             admissionPeriod: "01/6/2025 - 30/6/2025 (đăng ký trực tuyến trên hệ thống NEU và Bộ GD&ĐT)",
-            scoringNote: "Điểm xét tuyển được quy đổi về thang điểm 30",
+            scoringNote: "Không có sự phân biệt điểm xét tuyển giữa các tổ hợp; các môn trong tổ hợp được tính hệ số 1.",
             methods: {
                 "Xét tuyển thẳng": {
                     condition: "Theo quy định của Bộ Giáo dục và Đào tạo",
@@ -29,7 +33,34 @@ const universities = [
                     note: "Không sử dụng kết quả miễn thi ngoại ngữ, điểm thi bảo lưu từ các năm trước, không cộng điểm ưu tiên chứng chỉ nghề"
                 }
             }
-        }
+        },
+        majors: [
+            { name: "Kinh tế học", code: "7310101_1", combinations: ["A00", "A01", "D01", "D07"] },
+            { name: "Kinh tế và quản lý đô thị", code: "7310101_2", combinations: ["A00", "A01", "D01", "D07"] },
+            { name: "Kinh tế và quản lý nguồn nhân lực", code: "7310101_3", combinations: ["A00", "A01", "D01", "D07"] },
+            { name: "Kinh tế đầu tư", code: "7310104", combinations: ["A00", "A01", "D01", "D07"] },
+            { name: "Kinh tế phát triển", code: "7310105", combinations: ["A00", "A01", "D01", "D07"] },
+            { name: "Kinh tế quốc tế", code: "7310106", combinations: ["A00", "A01", "D01", "D07"] },
+            { name: "Thống kê kinh tế", code: "7310107", combinations: ["A00", "A01", "D01", "D07"] },
+            { name: "Toán kinh tế", code: "7310108", combinations: ["A00", "A01", "D01", "D07"] },
+            { name: "Quan hệ công chúng", code: "7320108", combinations: ["A00", "A01", "D01", "D07"] },
+            { name: "Ngôn ngữ Anh", code: "7220201", combinations: ["A00", "A01", "D01", "D07"] },
+            { name: "Quản trị kinh doanh", code: "7340101", combinations: ["A00", "A01", "D01", "D07"] },
+            { name: "Marketing", code: "7340115", combinations: ["A00", "A01", "D01", "D07"] },
+            { name: "Bất động sản", code: "7340116", combinations: ["A00", "A01", "D01", "D07"] },
+            { name: "Kinh doanh quốc tế", code: "7340120", combinations: ["A00", "A01", "D01", "D07"] },
+            { name: "Kinh doanh thương mại", code: "7340121", combinations: ["A00", "A01", "D01", "D07"] },
+            { name: "Thương mại điện tử", code: "7340122", combinations: ["A00", "A01", "D01", "D07"] },
+            { name: "Tài chính - Ngân hàng", code: "7340201", combinations: ["A00", "A01", "D01", "D07"] },
+            { name: "Bảo hiểm", code: "7340204", combinations: ["A00", "A01", "D01", "D07"] },
+            { name: "Kế toán", code: "7340301", combinations: ["A00", "A01", "D01", "D07"] },
+            { name: "Kiểm toán", code: "7340302", combinations: ["A00", "A01", "D01", "D07"] },
+            { name: "Khoa học quản lý", code: "7340401", combinations: ["A00", "A01", "D01", "D07"] },
+            { name: "Quản lý công", code: "7340403", combinations: ["A00", "A01", "D01", "D07"] },
+            { name: "Quan hệ lao động (mới)", code: "7340408", combinations: ["A00", "A01", "D01", "D07"] },
+            { name: "Luật thương mại quốc tế (mới)", code: "7380109", combinations: ["A00", "A01", "D01", "D07"] }
+        ],
+        note: "Các tổ hợp xét tuyển: A00 (Toán, Lý, Hóa), A01 (Toán, Lý, Anh), D01 (Toán, Văn, Anh), D07 (Toán, Hóa, Anh)."
     },
     {
         name: "Đại học Hải Phong",
