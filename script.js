@@ -1,5 +1,7 @@
 let filteredUniversities = [...universities];
-
+const majorInput = document.getElementById('major-filter');
+const suggestionBox = document.getElementById('major-suggestions');
+const allMajors = getAllMajors(universities);
 function updateStats() {
     const totalUniversities = filteredUniversities.length;
     const publicUniversities = filteredUniversities.filter(u => u.type === 'Công lập').length;
@@ -145,18 +147,19 @@ function filterUniversities() {
     const searchTerm = document.getElementById('searchBox').value.toLowerCase();
     const regionFilter = document.getElementById('regionFilter').value;
     const typeFilter = document.getElementById('typeFilter').value;
+    const majorTerm = majorInput.value.trim().toLowerCase();
 
-    filteredUniversities = universities.filter(university => {
-        const matchesSearch = university.name.toLowerCase().includes(searchTerm) ||
-                            university.admissionMethods.some(method => 
-                                method.toLowerCase().includes(searchTerm)
-                            );
-        const matchesRegion = !regionFilter || university.region === regionFilter;
-        const matchesType = !typeFilter || university.type === typeFilter;
-
-        return matchesSearch && matchesRegion && matchesType;
+    let filtered = universities.filter(u => {
+        let match = (!searchTerm || u.name.toLowerCase().includes(searchTerm));
+        if (regionFilter) match = match && u.region === regionFilter;
+        if (typeFilter) match = match && u.type === typeFilter;
+        if (majorTerm) {
+            match = match && u.majors && u.majors.some(m => m.name.toLowerCase().includes(majorTerm));
+        }
+        return match;
     });
 
+    filteredUniversities = filtered;
     renderUniversities();
     updateStats();
 }
@@ -169,24 +172,41 @@ document.getElementById('typeFilter').addEventListener('change', filterUniversit
 // Initial render
 filterUniversities();
 
-const majorFilter = document.getElementById('major-filter');
-const majors = getAllMajors(universities);
-majors.forEach(major => {
-    const option = document.createElement('option');
-    option.value = major;
-    option.textContent = major;
-    majorFilter.appendChild(option);
+
+
+// --- Autocomplete ngành ---
+
+
+majorInput.addEventListener('input', function() {
+    const val = this.value.trim().toLowerCase();
+    suggestionBox.innerHTML = '';
+    if (!val) {
+        suggestionBox.style.display = 'none';
+        filterUniversities();
+        return;
+    }
+    // Gợi ý ngành phù hợp
+    const suggestions = allMajors.filter(m => m.toLowerCase().includes(val));
+    if (suggestions.length) {
+        suggestionBox.style.display = 'block';
+        suggestions.forEach(s => {
+            const div = document.createElement('div');
+            div.className = 'suggestion-item';
+            div.textContent = s;
+            div.onclick = function() {
+                majorInput.value = s;
+                suggestionBox.style.display = 'none';
+                filterUniversities();
+            };
+            suggestionBox.appendChild(div);
+        });
+    } else {
+        suggestionBox.style.display = 'none';
+    }
+    filterUniversities();
 });
 
-majorFilter.addEventListener('change', function() {
-    const selectedMajor = this.value;
-    let filtered = universities;
-    if (selectedMajor) {
-        filtered = universities.filter(u =>
-            u.majors && u.majors.some(m => m.name === selectedMajor)
-        );
-    }
-    // Gán filtered vào biến filteredUniversities rồi gọi lại renderUniversities()
-    filteredUniversities = filtered;
-    renderUniversities();
+// Ẩn gợi ý khi blur
+majorInput.addEventListener('blur', function() {
+    setTimeout(() => suggestionBox.style.display = 'none', 150);
 });

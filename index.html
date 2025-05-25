@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thống Kê Phương Thức Xét Tuyển Đại Học</title>
     <link rel="stylesheet" href="styles.css">
+    
+    
 </head>
 <body>
+    
     <div class="container">
         <div class="header">
             <h1>🎓 Thống Kê Xét Tuyển Đại Học</h1>
@@ -29,10 +32,10 @@
                     <option value="Công lập">Công lập</option>
                     <option value="Tư thục">Tư thục</option>
                 </select>
-                <select class="filter-select" id="major-filter">
-                    <option value=""> Chọn ngành </option>
-                    <!-- JS sẽ render các option ngành ở đây -->
-                </select>
+                <div style="position: relative;">
+                    <input type="text" class="filter-select" id="major-filter" placeholder="Nhập tên ngành...">
+                    <div id="major-suggestions" class="suggestions-list"></div>
+                </div>
             </div>
 
             <div class="stats-overview">

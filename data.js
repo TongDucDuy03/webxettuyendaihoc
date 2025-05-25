@@ -253,8 +253,27 @@ const universities = [
                     quota: "Theo quy định"
                 }
             }
-        }
-    },
+        },
+        majors: [
+            { name: "Báo chí", code: "7320101", combinations: ["D01", "D14", "D15", "D96"] },
+            { name: "Xuất bản", code: "7320401", combinations: ["D01", "D14", "D15", "D96"] },
+            { name: "Chính trị học", code: "7310201", combinations: ["D01", "D14", "D15", "D96"] },
+            { name: "Chủ nghĩa xã hội khoa học", code: "7229008", combinations: ["D01", "D14", "D15", "D96"] },
+            { name: "Xây dựng Đảng và chính quyền nhà nước", code: "7310202", combinations: ["D01", "D14", "D15", "D96"] },
+            { name: "Tư tưởng Hồ Chí Minh", code: "7310203", combinations: ["D01", "D14", "D15", "D96"] },
+            { name: "Lịch sử Đảng Cộng sản Việt Nam", code: "7310204", combinations: ["D01", "D14", "D15", "D96"] },
+            { name: "Triết học", code: "7229001", combinations: ["D01", "D14", "D15", "D96"] },
+            { name: "Kinh tế chính trị", code: "7310102", combinations: ["D01", "D14", "D15", "D96"] },
+            { name: "Xã hội học", code: "7310301", combinations: ["D01", "D14", "D15", "D96"] },
+            { name: "Lịch sử", code: "7229010", combinations: ["D01", "D14", "D15", "D96"] },
+            { name: "Truyền thông đại chúng", code: "7320104", combinations: ["D01", "D14", "D15", "D96"] },
+            { name: "Quảng cáo", code: "7320110", combinations: ["D01", "D14", "D15", "D96"] },
+            { name: "Quan hệ công chúng", code: "7320115", combinations: ["D01", "D14", "D15", "D96"] },
+            { name: "Truyền thông quốc tế", code: "7320116", combinations: ["D01", "D14", "D15", "D96"] },
+            { name: "Truyền thông đa phương tiện", code: "7320117", combinations: ["D01", "D14", "D15", "D96"] }
+            ],
+        note: "Các tổ hợp xét tuyển: D01 (Toán, Ngữ văn, Tiếng Anh), D14 (Ngữ văn, Lịch sử, Tiếng Anh), D15 (Ngữ văn, Địa lý, Tiếng Anh), D96 (Ngữ văn, Tiếng Anh, Tin học). Môn chính trong tổ hợp được nhân hệ số 2 tùy theo nhóm ngành."
+        },
     {
         name: "Đại học Hà Nội (HANU)",
         region: "Hà Nội",

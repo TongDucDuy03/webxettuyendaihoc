@@ -385,6 +385,49 @@ body {
     background: #f0f8ff;
 }
 
+/* Gợi ý ngành */
+.suggestions-list {
+    position: absolute;
+    background: #fff;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-height: 200px; /* Giới hạn chiều cao */
+    overflow-y: auto; /* Thêm thanh cuộn nếu vượt quá chiều cao */
+    width: 100%; /* Đảm bảo danh sách gợi ý khớp với chiều rộng của input */
+    margin-top: 4px; /* Khoảng cách giữa input và danh sách */
+    padding: 0;
+}
+
+/* Mỗi mục gợi ý */
+.suggestions-list .suggestion-item {
+    padding: 10px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    transition: background 0.2s ease;
+}
+
+/* Hiệu ứng hover */
+.suggestions-list .suggestion-item:hover {
+    background: #f0f8ff;
+    color: #2c3e50;
+}
+
+/* Khi không có gợi ý */
+.suggestions-list.empty {
+    text-align: center;
+    color: #888;
+    padding: 10px;
+    font-style: italic;
+}
+
+/* Đảm bảo danh sách gợi ý không bị tràn ra ngoài màn hình */
+.filter-select {
+    position: relative;
+}
+
 @media (max-width: 768px) {
     .search-filter-container {
         grid-template-columns: 1fr;
@@ -418,5 +461,9 @@ body {
     }
     .filter-bar label {
         margin-bottom: 4px;
+    }
+    .suggestions-list {
+        width: 100%;
+        left: 0;
     }
 }
